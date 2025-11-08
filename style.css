@@ -2697,11 +2697,26 @@ section.review_book .book_title {
 section.review_book .book_author {
 	font-size: 20px;
 }
+.footer {
+ 	background-color: var(--primary-pink);
+    color: var(--text-light);
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
 
+.footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+        }
+
+.footer a:hover {
+    color: var(--accent-soft);
+        }
 }
-
-
-
 
 /* --------- RDM  HOME PAGE  SIGNUP----------- */
 
