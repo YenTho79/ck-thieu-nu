@@ -1,8 +1,8 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi" dir="ltr"> 
 <head>     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-    <title>Thêm Bài Đánh Giá Mới</title> 
+    <title>Quản Lý Hồ Sơ</title> 
     <meta name="description" content="Trang web dành cho những người yêu sách"> 
     <meta name="keywords" content="sách, đánh giá, dịch vụ, độc giả, tác giả"> 
     <meta name="author" content="Piotr"> 
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>    
     <script src="js/menu_mobile.js"></script>   
-    <script src="js/menu.js"></script> 
+    <script src="js/menu.js"></script>   
 </head> 
 <body>
     <header id="header">
@@ -46,7 +46,7 @@
                     <li><a href="review.html">Bài đánh giá 3</a></li>
                 </ul>
                 </li>
-                <li><a href="review.html">Thêm bài đánh giá</a></li>
+                <li ><a href="review.html">Thêm bài đánh giá</a></li>
                 <li><a href="contact.html">Liên hệ</a></li>
                 <li><a href="profile.html">Profile</a></li>
             </ul>   
@@ -56,48 +56,64 @@
     
     <div id="main" class="top_header">
         <div class="content full_width" >
-            <div class="create-review-container">
-                <h2>✍️ Gửi Bài Đánh Giá Mới Của Bạn</h2>
+            <div class="profile-container">
+                <h2>🛠️ Cài Đặt Hồ Sơ</h2>
 
-                <form id="newReviewForm">
-                    <input type="text" id="reviewTitle" placeholder="Tiêu đề bài đánh giá" required>
-                    <input type="text" id="bookTitle" placeholder="Tên sách được đánh giá" required>
-                    <input type="text" id="reviewerName" placeholder="Tên của bạn" required value>
-                    
-                    <div class="rating-stars">
-                        Đánh giá: 
-                        <span data-rating="1" class="fas fa-star"></span>
-                        <span data-rating="2" class="fas fa-star"></span>
-                        <span data-rating="3" class="fas fa-star"></span>
-                        <span data-rating="4" class="fas fa-star"></span>
-                        <span data-rating="5" class="fas fa-star"></span>
-                        <input type="hidden" id="ratingValue" value="0" required>
+                <section class="profile-section avatar-section">
+                    <h3>Ảnh Đại Diện</h3>
+                    <div class="avatar-display">
+                        <img id="currentAvatar" src="images/avatar/default-user.png" alt="Ảnh đại diện" class="user-avatar-lg" />
                     </div>
+                    <form id="avatarForm">
+                        <label for="avatarUpload" class="custom-file-upload">
+                            <i class="fas fa-camera"></i> Chọn Ảnh Mới
+                        </label>
+                        <input type="file" id="avatarUpload" accept="image/*" />
+                        <button type="button" id="saveAvatarBtn" class="submit-button" disabled>Lưu Ảnh</button>
+                    </form>
+                </section>
 
-                    <textarea id="reviewText" placeholder="Nội dung đánh giá chi tiết (tối thiểu 100 ký tự)" minlength="100" required></textarea>
-                    
-                    <button type="submit" class="submit-button">Đăng Bài Đánh Giá</button>
-                </form>
+                <hr/>
+
+                <section class="profile-section info-section">
+                    <h3>Thông Tin Cá Nhân</h3>
+                    <form id="infoForm">
+                        <label for="displayName">Tên Hiển Thị:</label>
+                        <input type="text" id="displayName" value="" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" value="" required>
+
+                        <label for="bio">Giới Thiệu Ngắn (Bio):</label>
+                        <textarea id="bio" rows="4"></textarea>
+
+                        <button type="submit" class="submit-button">Lưu Thông Tin</button>
+                    </form>
+                </section>
+
+                <hr/>
+
+                <section class="profile-section password-section">
+                    <h3>Đổi Mật Khẩu</h3>
+                    <form id="passwordForm">
+                        <label for="currentPassword">Mật Khẩu Hiện Tại:</label>
+                        <input type="password" id="currentPassword" required>
+
+                        <label for="newPassword">Mật Khẩu Mới:</label>
+                        <input type="password" id="newPassword" required>
+
+                        <label for="confirmNewPassword">Xác Nhận Mật Khẩu Mới:</label>
+                        <input type="password" id="confirmNewPassword" required>
+
+                        <button type="submit" class="submit-button secondary-button">Đổi Mật Khẩu</button>
+                    </form>
+                </section>
+                
             </div>
         </div>
         
         </div>
 
-    <script src="js/review.js"></script> 
-
-				<footer class="footer" id="contact">
-        <div class="contact_info">
-            <h3>Liên Hệ Chúng Mình Nhé <i class="fas fa-paper-plane"></i></h3>
-            <p>Email: 1234@student.bdu.edu.vn | Phone: 1900 1500</p>
-			<p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-            <p>
-                Theo dõi tại:
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://facebook.com/=" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            </p>
-        </div>
-        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
-    </footer>
+    <script src="js/profile.js"></script> 
 </body> 
-</html>   
+</html>

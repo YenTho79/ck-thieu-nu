@@ -2,7 +2,7 @@
 <html lang="vi" dir="ltr"> 
 <head>     
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-	<title>Sách: Kamienie na szaniec</title> 
+	<title>Sách: Naznaczeni śmiercią</title> 
 	<meta name="description" content="Trang web dành cho những người yêu sách"> 
 	<meta name="keywords" content="sách, đánh giá, dịch vụ, độc giả, tác giả"> 
 	<meta name="author" content="Piotr"> 
@@ -13,16 +13,30 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>	
 	<script src="js/menu.js"></script>	
 	<script src="js/menu_mobile.js"></script>	
-	
+	<script src="js/form_jquery.js"></script>	
+	<script src="js/ajax.js"></script>
 </head> 
 <body>
 	<div id="bg_sach_3" class="book_top">
 		<header id="header" class="ghost_menu">
 			<div class="logo"><img src="images/logo.png" alt="logo" /></div>
+			<div class="search-bar">
+            <i class="icon-search"></i>
+            <input type="text" placeholder="Tìm kiếm sách, đánh giá, tác giả...">
+        </div>
+        <div id="profile-container" style="display: none;">
+            <a href="profile.html" id="profile-link" title="Quản lý Hồ sơ">
+                <img id="user-avatar-display" 
+                      src="images/avatar/default-user.png" 
+                      alt="Ảnh đại diện" 
+                      class="user-avatar-small" />
+            </a>
+            <a href="#" id="logout-button" class="logout-btn">Đăng Xuất</a>
+        </div>
 			<nav id="navigation" class="top_menu" >
 				<ul id="menu_navigation" class="menu" >
 					<li class=""><a href="index.html">Trang chủ</a></li>
-						<li><a href="book3.html">Sách</a></li>
+						<li><a href="sach.html">Sách</a></li>
 						<li class="menu_has_children" ><a href="review-page.html">Bài viết</a>
 						<ul class="sub-menu">
 							<li><a href="review.html">Bài đánh giá 1</a></li>
@@ -34,8 +48,9 @@
 							<li><a href="review.html">Bài đánh giá 3</a></li>
 						</ul>
 						</li>
-						<li ><a href="">Thêm bài đánh giá</a></li>
+						<li ><a href="review.html">Thêm bài đánh giá</a></li>
 						<li><a href="contact.html">Liên hệ</a></li>
+						<li><a href="profile.html">Profile</a></li>
 				</ul>		
 			</nav>
 			<a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>

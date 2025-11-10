@@ -2751,4 +2751,243 @@ section.contact .contact_form {
 	width:85%;	
 }
 }
+/* --- LAYOUT CHUNG (Dành cho review-page.html) --- */
+/* Cần cho các div chia cột của bạn hoạt động */
+.col_60p { width: 60%; float: left; padding-right: 20px; box-sizing: border-box; }
+.col_40p { width: 40%; float: left; box-sizing: border-box; }
+.review_wrap { overflow: hidden; } /* Bao quanh danh sách */
 
+.review {
+    overflow: hidden; /* Clearfix cho mỗi item */
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
+}
+.review:last-child { border-bottom: none; }
+.review_author .avatar img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* --- TRANG TẠO ĐÁNH GIÁ (review.html) --- */
+.create-review-container { 
+    max-width: 800px; 
+    margin: 30px auto; 
+    padding: 30px; 
+    background: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+.create-review-container h2 { text-align: center; color: #333; margin-bottom: 25px; }
+.create-review-container input[type="text"], 
+.create-review-container textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+.create-review-container textarea { resize: vertical; height: 150px; }
+
+/* --- SAO ĐÁNH GIÁ --- */
+.rating-stars { font-size: 30px; color: #ccc; margin-bottom: 20px; }
+.rating-stars span { cursor: pointer; transition: color 0.2s; }
+.rating-stars span.selected { color: #ffc107; }
+
+/* SAO HIỂN THỊ (review-page.html) */
+.review-rating { color: #ccc; font-size: 1.2em; margin-bottom: 5px; }
+.review-rating .fa-star.filled { color: #ffc107; } /* Màu sao được tô */
+
+/* Nút Đăng/Thêm */
+.submit-button { 
+    padding: 12px 25px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    transition: background 0.3s;
+}
+.submit-button:hover { background-color: #0056b3; }
+.add-review-btn {
+    display: block; 
+    width: 250px; 
+    margin: 10px auto 30px; 
+    text-align: center; 
+    text-decoration: none; 
+    background-color: #2ecc71 !important;
+}
+.add-review-btn:hover {
+    background-color: #27ae60 !important;
+}
+/* --- PROFILE PAGE (profile.html) STYLES --- */
+.profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2 {
+    text-align: center;
+    color: #3498db;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+/* Form inputs */
+.info-section label, .password-section label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.info-section input[type="text"], 
+.info-section input[type="email"],
+.info-section textarea,
+.password-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.info-section textarea {
+    resize: vertical;
+}
+
+/* Avatar Section */
+.avatar-section {
+    text-align: center;
+}
+.avatar-display {
+    margin-bottom: 20px;
+}
+.user-avatar-lg {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3498db;
+    transition: transform 0.3s ease-in-out;
+}
+.user-avatar-lg:hover {
+    transform: scale(1.05);
+}
+
+/* Custom File Upload Button */
+input[type="file"] {
+    display: none; /* Ẩn input file mặc định */
+}
+.custom-file-upload {
+    border: 1px solid #3498db;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background 0.3s;
+}
+.custom-file-upload:hover {
+    background: #2980b9;
+}
+
+/* Buttons */
+.submit-button {
+    padding: 10px 20px;
+    background-color: #2ecc71; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+.submit-button:hover {
+    background-color: #27ae60;
+}
+.secondary-button {
+    background-color: #e74c3c;
+}
+.secondary-button:hover {
+    background-color: #c0392b;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
+/* --- PROFILE ICON & LOGOUT BUTTON --- */
+
+#profile-container {
+    position: absolute; /* Đặt vị trí tuyệt đối so với header/body */
+    top: 20px; 
+    right: 20px; 
+    display: flex; /* Sắp xếp ảnh và nút đăng xuất cạnh nhau */
+    align-items: center;
+    z-index: 1000; /* Đảm bảo nó luôn ở trên các phần tử khác */
+    background-color: #f7f7f7; /* Nền nhẹ để nổi bật */
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3498db; /* Viền xanh nổi bật */
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+.user-avatar-small:hover {
+    transform: scale(1.1);
+    border-color: #2ecc71;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #e74c3c; /* Màu đỏ cho nút đăng xuất */
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+.logout-btn:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+/* Đảm bảo body có position: relative hoặc header đủ lớn để chứa absolute */
+/* Tùy chỉnh nếu #profile-container bị đè bởi các phần tử khác */

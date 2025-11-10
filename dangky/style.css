@@ -1,0 +1,141 @@
+body {
+    /* Simulating the dark, textured background */
+    background: #1a1a1a; 
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.registration-container {
+    background: rgba(0, 0, 0, 0.6); /* Slightly transparent background for the form area */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 350px; /* Adjust width as needed */
+}
+
+/* --- Title Styling --- */
+.form-title {
+    text-align: center;
+    color: #ffd700; /* Gold color for the text */
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    
+    /* Simulating the ornate brown/gold banner effect */
+    background: linear-gradient(to bottom, #4e342e, #3e2723); /* Brown gradient background */
+    border-radius: 5px;
+    padding: 15px 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
+    border: 1px solid #795548;
+}
+
+/* --- Input Fields Styling --- */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    background-color: #333; /* Darker background for the input area */
+    border-radius: 5px;
+    padding: 10px 10px 10px 50px; /* Space for icon */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    height: 40px; /* Fixed height for consistency */
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #eee;
+    font-size: 16px;
+    line-height: 20px;
+    /* Adjusting placeholder color to be visible on the dark background */
+    padding: 0; 
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b8860b; /* Gold/Bronze color for the icons */
+    font-size: 20px;
+}
+
+/* Adjusting the look of the default icons to match the image's style */
+.fa-user:before {
+    content: "\f007"; /* Default Font Awesome User */
+}
+.fa-lock:before {
+    content: "\f023"; /* Default Font Awesome Lock */
+    /* Add a slight brown/gold shadow to match the image's icon look */
+    text-shadow: 0 0 5px #ffd700;
+}
+
+/* Password eye icon styling */
+.password-group {
+    padding-right: 50px; /* Space for the eye icon */
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* --- Button Styling --- */
+.register-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    
+    /* Purple gradient and shadow effect to match the image */
+    background: linear-gradient(to top, #6a1b9a, #9c27b0); 
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    box-shadow: 0 5px 15px rgba(106, 27, 154, 0.8), 0 0 5px rgba(255, 255, 255, 0.4) inset;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-button:hover {
+    background: linear-gradient(to top, #7b1fa2, #ab47bc);
+    box-shadow: 0 8px 20px rgba(106, 27, 154, 1);
+}
+/* ... (CSS cũ giữ nguyên) ... */
+
+/* --- Styling cho phần Đã có tài khoản? Đăng nhập ngay --- */
+.login-prompt {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #ccc; /* Màu chữ nhạt */
+}
+
+.login-link {
+    color: #ffd700; /* Màu vàng kim để nổi bật link */
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Tạo hiệu ứng sáng nhẹ */
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #fff; /* Chuyển sang màu trắng khi hover */
+    text-decoration: underline;
+}
