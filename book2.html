@@ -2,7 +2,7 @@
 <html lang="vi" dir="ltr"> 
 <head>     
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-	<title>Sách: Był sobie pies</title> 
+	<title>Sách: Kamienie na szaniec</title> 
 	<meta name="description" content="Trang web dành cho những người yêu sách"> 
 	<meta name="keywords" content="sách, đánh giá, dịch vụ, độc giả, tác giả"> 
 	<meta name="author" content="Piotr"> 
@@ -13,30 +13,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>	
 	<script src="js/menu.js"></script>	
 	<script src="js/menu_mobile.js"></script>	
-	<script src="js/form_jquery.js"></script>	
-	<script src="js/ajax.js"></script>
+	
 </head> 
 <body>
 	<div id="bg_sach_2" class="book_top">
 		<header id="header" class="ghost_menu">
 			<div class="logo"><img src="images/logo.png" alt="logo" /></div>
-			<div class="search-bar">
-            <i class="icon-search"></i>
-            <input type="text" placeholder="Tìm kiếm sách, đánh giá, tác giả...">
-        </div>
-        <div id="profile-container" style="display: none;">
-            <a href="profile.html" id="profile-link" title="Quản lý Hồ sơ">
-                <img id="user-avatar-display" 
-                      src="images/avatar/default-user.png" 
-                      alt="Ảnh đại diện" 
-                      class="user-avatar-small" />
-            </a>
-            <a href="#" id="logout-button" class="logout-btn">Đăng Xuất</a>
-        </div>
 			<nav id="navigation" class="top_menu" >
 				<ul id="menu_navigation" class="menu" >
 					<li class=""><a href="index.html">Trang chủ</a></li>
-						<li><a href="sach.html">Sách</a></li>
+						<li><a href="menu.html">Sách</a></li>
 						<li class="menu_has_children" ><a href="review-page.html">Bài viết</a>
 						<ul class="sub-menu">
 							<li><a href="review.html">Bài đánh giá 1</a></li>
@@ -50,7 +36,6 @@
 						</li>
 						<li ><a href="review.html">Thêm bài đánh giá</a></li>
 						<li><a href="contact.html">Liên hệ</a></li>
-						<li><a href="profile.html">Profile</a></li>
 				</ul>		
 			</nav>
 			<a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>
@@ -70,11 +55,19 @@
 			<section class="book_description">
 				<h2>Mô tả sách</h2>
             <div class="description">
-                <p>Cuốn sách kể về hành trình luân hồi cảm động của một chú chó. Linh hồn nó được tái sinh qua nhiều kiếp sống với các giống loài khác nhau, nhưng luôn mang trong mình ký ức và nhiệm vụ tìm kiếm ý nghĩa sự tồn tại của mình. Cuối cùng, sứ mệnh của nó luôn là bảo vệ và yêu thương cậu bé tên Ethan mà nó gặp ở kiếp đầu tiên.</p>
-                <p>Mỗi lần được tái sinh, chú chó (tên là Bailey, Ellie, Tino, và cuối cùng là Buddy) đều học được một bài học mới về lòng trung thành, tình yêu và ý nghĩa của việc ở bên một con người. Đây là một câu chuyện ấm áp về sự gắn kết vĩnh cửu giữa người và động vật.</p>
-            </div>
-							Nguồn: <a href="https://pl.wikipedia.org/wiki/Kamienie_na_szaniec">Wikipedia.org</a>
-						</p>	
+                <p>                     
+                        *Był sobie pies* (Tên gốc: *A Dog's Purpose*) kể về một chú chó tên là Bailey, người được tái sinh nhiều lần dưới nhiều hình dạng khác nhau, nhưng luôn giữ được ký ức về cuộc đời trước.
+                        Qua mỗi lần tái sinh, mục đích sống của Bailey dần hé lộ: tìm ra ý nghĩa của sự tồn tại và quan trọng nhất là bảo vệ và đoàn tụ với cậu chủ đầu tiên của mình, Ethan.
+                    </p>
+                    <p>
+                        Câu chuyện được kể từ góc nhìn của chú chó, mang đến cái nhìn sâu sắc và cảm động về tình yêu vô điều kiện giữa con người và vật nuôi. Mỗi lần chuyển kiếp, Bailey học được một bài học mới, từ việc trở thành chó cảnh sát, chó cứu hộ, đến một chú chó đồng hành thông thường.
+                    </p>
+                    <p>
+                        Cuốn sách là một hành trình xúc động về sự trung thành, sự mất mát và niềm vui tìm lại. Nó khiến người đọc suy ngẫm về mối liên kết đặc biệt mà chúng ta chia sẻ với những người bạn bốn chân của mình.
+                    </p>
+                    <p>
+                            Nguồn: Tóm tắt sách
+                        </p>	
 				</div>
 			</section>
 			<section  id="vote_section" class="book_vote">
@@ -83,7 +76,7 @@
 					<div class="vote_block">
 						<div class="book_vote anim_book_vote1">
 							<div class="vote_count ">
-								<div id="vote1_count" class="anim_count1">826</div>
+								<div id="vote1_count" class="anim_count1">1023</div>
 							</div>
 							<div class="vote_buttons">
 								<button type="button" onclick="vote(1)" id="vote1" class="anim_button1">Tôi đã đọc</button>
@@ -92,7 +85,7 @@
 						</div>
 						<div class="book_vote anim_book_vote2">
 							<div class="vote_count">
-								<div id="vote2_count" class="anim_count2">45</div>
+								<div id="vote2_count" class="anim_count2">357</div>
 							</div>
 							<div class="vote_buttons">
 								<button type="button" onclick="vote(2)" id="vote2" class="anim_button2">Đang đọc</button>
@@ -101,7 +94,7 @@
 						</div>
 						<div class="book_vote anim_book_vote3">
 							<div class="vote_count">
-								<div id="vote3_count" class="anim_count3">70</div>
+								<div id="vote3_count" class="anim_count3">1209</div>
 							</div>
 							<div class="vote_buttons">
 								<button type="button" onclick="vote(3)" id="vote3" class="anim_button3">Muốn đọc</button>
@@ -129,84 +122,83 @@
             <div class="author_wrap">
                 <div class="author">
                     <div class="author_img col_40p">
-                        <div class="avatar">
-                            <img alt="chân dung tác giả W. Bruce Cameron" src="images/covers/tg.P.png" />
-                        </div>
-                    </div>
+							<div class="avatar">
+								<img alt="chân dung tác giả" src="images/covers/tg.P.png" />
+							</div>
+						</div>
                     <div class="author_info col_60p">
                         <h4>W. Bruce Cameron</h4>
                         <div class="description">
-                            <p>W. Bruce Cameron là một tiểu thuyết gia và nhà báo người Mỹ. Ông nổi tiếng với các cuốn sách về chó, bao gồm "A Dog's Purpose" và các phần tiếp theo. Tác phẩm của ông thường đề cao lòng nhân ái, sự kết nối gia đình và tình yêu thương động vật.</p>
-                        </div>
+                            <p>W. Bruce Cameron là một tiểu thuyết gia, nhà báo và nhà văn hài kịch người Mỹ. Ông được biết đến nhiều nhất với bộ tiểu thuyết *A Dog's Purpose* và các phần tiếp theo, đã được chuyển thể thành phim điện ảnh.</p>
+                                <p>Các tác phẩm của ông thường tập trung vào những câu chuyện ấm áp về mối quan hệ giữa con người và động vật, đặc biệt là chó, mang đến tiếng cười và cả những khoảnh khắc xúc động.</p>
+                                
+                            </div>
                     </div>
                 </div>
             </div>
         </section>
 			<section class="book_review">
 				<h2>Những bài đánh giá mới nhất</h2>
-				<div class="review_wrap">
-					<div class="review">
-						<div class="review_info col_60p">
-							<h4>Quidditch sau nhiều năm</h4>
-							<div class="description">
-								<p>Tôi quay lại thế giới phù thủy để xem Quidditch đổi thay thế nào sau từng mùa giải; những pha tranh chấp quyết liệt và cảm giác hoài niệm khiến cuốn sách vẫn giữ trọn sức hút.</p>
-							</div>
-						</div>
-						<div class="review_author col_40p">
+                <div class="review_wrap">
+                    <div class="review">
+                        <div class="review_info col_60p">
+                            <h4>Tình bạn bốn chân cảm động</h4>
+                            <div class="description">
+                                <p>Cuốn sách khiến tôi khóc và cười. Góc nhìn của chú chó về cuộc sống và con người thật độc đáo và sâu sắc. Một câu chuyện đẹp về sự trung thành tuyệt đối.</p>
+                            </div>
+                        </div>
+                        <div class="review_author col_40p">
 							<div class="avatar">
 								<img alt="ảnh đại diện" src="images/avatar/1.jpg" />
 							</div>
 							<h4>Ewelina Nowak</h4>
 						</div>
 					</div>
-					<div class="review">
-						<div class="review_info col_60p">
-							<h4>Liệu bạn có an toàn ngay trong nhà?</h4>
-							<div class="description">
-								<p>Một câu chuyện giật gân đặt ra câu hỏi về niềm tin giữa những người thân cận nhất; mỗi chương lại đẩy nhân vật đến giới hạn và buộc họ xác định đâu mới là nơi trú ẩn thật sự.</p>
-							</div>
-							
-						</div>
-						<div class="review_author col_40p">
+                    <div class="review">
+                        <div class="review_info col_60p">
+                            <h4>Lòng trung thành không giới hạn</h4>
+                            <div class="description">
+                                <p>Mặc dù ý tưởng tái sinh hơi khó tin, nhưng thông điệp cốt lõi về tình yêu và sự gắn bó giữa vật nuôi và chủ nhân được truyền tải mạnh mẽ. Rất đáng đọc!</p>
+                            </div>
+                        </div>
+                        <div class="review_author col_40p">
 							<div class="avatar">
 								<img alt="ảnh đại diện" src="images/avatar/2.jpeg" />
 							</div>
 							<h4>Daniel Ciupała</h4>
 						</div>
 					</div>
-					<div class="review">
-						<div class="review_info col_60p">
-							<h4>Muốn chiến thắng thì phải chơi!</h4>
-							<div class="description">
-								<p>Một lời nhắc đầy năng lượng rằng không hành động thì sẽ chẳng có chiến thắng; tác giả phân tích cách các nhân vật vượt qua thất bại và học cách dựa vào đồng đội.</p>
-							</div>
-							
-						</div>
-						<div class="review_author col_40p">
+                    <div class="review">
+                        <div class="review_info col_60p">
+                            <h4>Câu chuyện cảm động về ý nghĩa cuộc sống</h4>
+                            <div class="description">
+                                <p>Nếu bạn yêu động vật, cuốn sách này là dành cho bạn. Nó giúp bạn nhìn nhận thế giới qua đôi mắt của một chú chó, với sự đơn giản và tình yêu thuần khiết.</p>
+                            </div>
+                        </div>
+                        <div class="review_author col_40p">
 							<div class="avatar">
 								<img alt="ảnh đại diện" src="images/avatar/3.jpeg" />
 							</div>
 							<h4>Adam Konieczny</h4>
 						</div>
 					</div>
-					<div class="review">
-						<div class="review_info col_60p">
-							<h4>Cuốn sách tuyệt vời về lịch sử Ba Lan</h4>
-							<div class="description">
-								<p>Bài đánh giá tán dương cách tác phẩm tái hiện lịch sử Ba Lan bằng giọng kể cá nhân, biến những sự kiện đau thương thành câu chuyện trưởng thành đầy xúc động.</p>
-							</div>
-							
-						</div>
-						<div class="review_author col_40p">
+                    <div class="review">
+                        <div class="review_info col_60p">
+                            <h4>Làm thế nào để yêu thương vô điều kiện</h4>
+                            <div class="description">
+                                <p>Một câu chuyện tuyệt vời về sự kiên trì, tái sinh và mục đích sống. Tôi khuyến khích bất kỳ ai đã từng có một chú chó nên đọc cuốn này.</p>
+                            </div>
+                        </div>
+                        <div class="review_author col_40p">
 							<div class="avatar">
 								<img alt="ảnh đại diện" src="images/avatar/4.jpeg" />
 							</div>
 							<h4>Kamila Lewitt</h4>
 						</div>
 					</div>
-					
-				</div>
-			</section>
+                    
+                </div>
+            </section>
 
 			<section class="books">
 			
@@ -259,20 +251,7 @@
 				
 			</section>
 
-				<footer class="footer" id="contact">
-        <div class="contact_info">
-            <h3>Liên Hệ Chúng Mình Nhé <i class="fas fa-paper-plane"></i></h3>
-            <p>Email: 1234@student.bdu.edu.vn | Phone: 1900 1500</p>
-			<p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-            <p>
-                Theo dõi tại:
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://facebook.com/=" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            </p>
-        </div>
-        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
-    </footer>
+			<div class="footer"> 2025 @Thiếu Nữ | Đánh giá sách cùng mình nào 💓💓💓</div>
 			
 		</div>
 			
