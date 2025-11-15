@@ -15,8 +15,49 @@
 	<script src="js/menu_mobile.js"></script>	
 	<script src="js/form_jquery.js"></script>	
 	<script src="js/ajax.js"></script>
+	<!-- ⭐⭐⭐ STYLE LOADING THIẾU NỮ ⭐⭐⭐ -->
+<style>
+#loading {
+	position: fixed;
+	inset: 0;
+	background: #0f0f0f;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 99999;
+	font-family: "Segoe UI", sans-serif;
+}
+.progress-container {
+	width: 60%;
+	background: #f6cee2;
+	height: 12px;
+	border-radius: 20px;
+	overflow: hidden;
+}
+.progress-bar {
+	width: 0%;
+	height: 100%;
+	background: #eb49b5;
+	border-radius: 20px;
+	transition: width 0.2s ease;
+}
+#loading p {
+	margin-top: 20px;
+	font-size: 18px;
+	color: #efe4eb;
+}
+</style>
 </head> 
 <body>
+	<!-- ⭐⭐⭐ LOADING TRƯỚC KHI VÀO WEB ⭐⭐⭐ -->
+<div id="loading">
+	<div class="progress-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+	<p>⭐⭐⭐ Welcom Thiếu Nữ…</p>
+</div>
+
 	<div id="top_bg_home" class="top">
 		<header id="header" class="ghost_menu">
 			<div class="logo"><img src="images/logo.png" alt="logo" /></div>
@@ -45,20 +86,20 @@
 		<div class="container">
 			<div class="container2">
 				<h2 class="title">Không gian của bạn trên mạng - Đọc! Viết! Giới thiệu!</h2>
-				<p id="plasuj" class="description">Trang web dành cho những người yêu sách.<br/> Duyệt kho sách</span>, viết đánh giá, tạo thư viện của riêng bạn.</p>
+				<p id="plasuj" class="description">⭐⭐⭐Trang web dành cho những người yêu sách.<br/> Duyệt kho sách</span>, viết đánh giá, tạo thư viện của riêng bạn...⭐⭐⭐</p>
 			</div>
 		</div>
 	</div>
 	<div id="main">
 		<div class="content full_width">
 			<section class="books">
-				<h2>Sách mới nhất</h2>
+				<h2>⭐⭐⭐Sách mới nhất⭐⭐⭐</h2>
 				<div class="wrap book_main_list">
 					<div class="book">
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/ka.jpg" />
 							<div class="info">
-								<h5>Kamienie na szaniec</h5>
+								<h5>⭐Kamienie na szaniec</h5>
 							</div>
 						</a>
 					</div>
@@ -66,7 +107,7 @@
 						<a href="book1.html">
 							<img class="cover" alt="bìa sách" src="images/covers/harry.jpg" />
 							<div class="info">
-								<h5>Harry Potter i Więzień Azkabanu</h5>
+								<h5>⭐Harry Potter i Więzień Azkabanu</h5>
 							</div>
 						</a>
 					</div>
@@ -74,7 +115,7 @@
 						<a href="book2.html">
 							<img class="cover" alt="bìa sách" src="images/covers/pies.jpg" />
 							<div class="info">
-								<h5>Był sobie pies</h5>
+								<h5>⭐Był sobie pies</h5>
 							</div>
 						</a>
 					</div>
@@ -82,7 +123,7 @@
 						<a href="book3.html">
 							<img class="cover" alt="bìa sách" src="images/covers/naznaczeni.jpg" />
 							<div class="info">
-								<h5>Naznaczeni śmiercią</h5>
+								<h5>⭐Naznaczeni śmiercią</h5>
 							</div>
 						</a>
 					</div>
@@ -90,7 +131,7 @@
 						<a href="book4.html">
 							<img class="cover" alt="bìa sách" src="images/covers/mitologia.jpg" />
 							<div class="info">
-								<h5>Mitologia nordycka</h5>
+								<h5>⭐Mitologia nordycka</h5>
 							</div>
 						</a>
 					</div>
@@ -98,7 +139,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/diabolika.jpg" />
 							<div class="info">
-								<h5>Diabolika</h5>
+								<h5>⭐Diabolika</h5>
 							</div>
 						</a>
 					</div>
@@ -106,7 +147,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/juz-mnie-nie-oszukasz.jpg" />
 							<div class="info">
-								<h5>Już mnie nie oszukasz</h5>
+								<h5>⭐Już mnie nie oszukasz</h5>
 							</div>
 						</a>
 					</div>
@@ -114,7 +155,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/pragnienie.jpg" />
 							<div class="info">
-								<h5>Pragnienie</h5>
+								<h5>⭐Pragnienie</h5>
 							</div>
 						</a>
 					</div>
@@ -122,7 +163,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/fantastyczne.jpg" />
 							<div class="info">
-								<h5>Fantastyczne zwierzęta i jak je znaleźć</h5>
+								<h5>⭐Fantastyczne zwierzęta i jak je znaleźć</h5>
 							</div>
 						</a>
 					</div>
@@ -130,7 +171,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/ksiega.jpg" />
 							<div class="info">
-								<h5>Księga snów</h5>
+								<h5>⭐Księga snów</h5>
 							</div>
 						</a>
 					</div>
@@ -138,7 +179,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/quidditch.jpg" />
 							<div class="info">
-								<h5>Quidditch przez wieki</h5>
+								<h5>⭐Quidditch przez wieki</h5>
 							</div>
 						</a>
 					</div>
@@ -146,7 +187,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/chata.jpg" />
 							<div class="info">
-								<h5>Chata</h5>
+								<h5>⭐Chata</h5>
 							</div>
 						</a>
 					</div>
@@ -154,7 +195,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/milczenie.jpg" />
 							<div class="info">
-								<h5>Milczenie</h5>
+								<h5>⭐Milczenie</h5>
 							</div>
 						</a>
 					</div>
@@ -162,7 +203,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/królestwo.jpg" />
 							<div class="info">
-								<h5>Królestwo kanciarzy</h5>
+								<h5>⭐Królestwo kanciarzy</h5>
 							</div>
 						</a>
 					</div>
@@ -170,7 +211,7 @@
 						<a href="book.html">
 							<img class="cover" alt="bìa sách" src="images/covers/spij-spokojnie.jpg" />
 							<div class="info">
-								<h5>Śpij spokojnie</h5>
+								<h5>⭐Śpij spokojnie</h5>
 							</div>
 						</a>
 					</div>
@@ -179,7 +220,7 @@
 				
 			</section>
 			<section class="review_list">
-				<h2>Bài đánh giá nổi bật</h2>
+				<h2>⭐⭐⭐Bài đánh giá nổi bật⭐⭐⭐</h2>
 				<div class="review_wrap" id="reviews" >
 					<div class="review">
 						<div class="review_body col_60p">
@@ -261,7 +302,7 @@
 			<div class="contact-grid">
         
         <div class="contact-col">
-            <h2>Thông Tin Liên Lạc</h2>
+            <h2>⭐⭐⭐Thông Tin Liên Lạc</h2>
             <div class="contact-info">
                 <p>📍 **Địa chỉ:** Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
                 <p>📞 **Hotline:** <a href="tel:1900 1500">1900 1500</a> (Hỗ trợ 24/7)</p>
@@ -271,7 +312,7 @@
         </div>
 
         <div class="contact-col">
-            <h2>Gửi Tin Nhắn Nhanh</h2>
+            <h2>⭐⭐⭐Gửi Tin Nhắn Nhanh</h2>
             <div class="contact-form">
                 <form action="#" method="POST">
                     <div>
@@ -292,7 +333,7 @@
         </div>
         
         <div class="contact-col">
-            <h2>Vị Trí & Kết Nối</h2>
+            <h2>⭐⭐⭐Vị Trí & Kết Nối</h2>
             
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.019519416203!2d105.79255011493268!3d21.031580985997288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab79737119e7%3A0x868b7b2521f75960!2zSOG7ho2kgUGhvbmc!5e0!3m2!1svi!2svn!4v1639016912345" allowfullscreen="" loading="lazy"></iframe>
@@ -311,6 +352,26 @@
         </div>
         <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
     </footer>
+	<!-- ⭐⭐⭐ SCRIPT LOADING ⭐⭐⭐ -->
+<script>
+let bar = document.getElementById("progressBar");
+let load = 0;
+let interval = setInterval(() => {
+	load += Math.random() * 15;
+	if (load >= 100) {
+		load = 100;
+		clearInterval(interval);
+
+		setTimeout(() => {
+			document.getElementById("loading").style.opacity = "0";
+			setTimeout(() => {
+				document.getElementById("loading").style.display = "none";
+			}, 400);
+		}, 300);
+	}
+	bar.style.width = load + "%";
+}, 300);
+</script>
 		</div>
 	</div>
 
