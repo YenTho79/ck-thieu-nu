@@ -35,7 +35,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 80px;
     /* Loại bỏ padding cũ và thêm padding cho Flexbox hoạt động hiệu quả */
     padding: 0 10%; 
     background-color: #fff;
@@ -50,63 +50,14 @@
 }
 
 /* 2. CSS cho Logo (Đảm bảo không có margin trái) */
-.logo {
-    /* Đảm bảo logo không có margin trái hoặc padding ngoài lề */
-    margin-left: 0;
-    padding-left: 0;
-    margin-right: 15px; /* Khoảng cách giữa logo và thanh tìm kiếm */
-    flex-shrink: 0; 
-}
-
-/* 3. CSS cho Thanh Tìm kiếm */
-/* Container của thanh tìm kiếm */
-.search-bar {
-    display: flex; /* Dùng Flexbox để căn chỉnh icon và input */
-    align-items: center;
-    
-    background-color: #f0f2f5; /* Màu nền xám nhạt, sạch sẽ */
-    border-radius: 20px; /* Bo tròn góc mạnh mẽ */
-    padding: 8px 15px;
-    width: 300px; 
-    flex-shrink: 0;
-    margin-right: auto; 
-    
-    /* Loại bỏ hoàn toàn viền */
-    border: none; 
-    /* Áp dụng đổ bóng nhẹ (optional, nhưng giúp giao diện nổi bật hơn) */
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
-    
-    /* Hiệu ứng khi hover (optional) */
-    transition: background-color 0.2s ease;
-}
-
-/* Hiệu ứng khi di chuột vào */
-.search-bar:hover {
-    background-color: #e6e9ed; 
-}
-
-/* Icon kính lúp */
-.search-bar .icon-search {
-    color: #606770; 
-    margin-right: 8px;
-    font-size: 16px;
-}
-
-/* Ô input bên trong thanh tìm kiếm */
-.search-bar input[type="text"] {
-    border: none; /* RẤT QUAN TRỌNG: Loại bỏ viền mặc định của input */
-    background: transparent; /* Loại bỏ nền mặc định */
-    outline: none; /* Loại bỏ viền khi focus */
-    font-size: 15px;
-    color: #1c1e21; 
-    width: 100%; 
-    padding: 0; /* Đảm bảo không có padding thừa trong input */
-}
-
-/* Hiệu ứng khi người dùng click vào để nhập liệu */
-.search-bar input[type="text"]:focus {
-    /* Khi focus, có thể thay đổi màu nền của cả thanh tìm kiếm */
-    background: transparent;
+/* Bao logo */
+.logo img {
+    height: 65px;              /* Chiều cao logo (tối ưu cho header 70px) */
+    width: auto;               /* Tự giữ tỉ lệ ảnh gốc */
+    object-fit: contain;       /* Hiển thị chuẩn, không méo */
+    image-rendering: -webkit-optimize-contrast; /* Tăng độ nét (Chrome) */
+    image-rendering: crisp-edges;
+    display: block;            /* Loại bỏ khoảng trắng bên dưới ảnh */
 }
 
 #header.ghost_menu {
@@ -436,13 +387,13 @@ section h2  {
 }
 
 section h2 span:hover  {
-	background-color:rgba(26, 188, 156, 1);
+	background-color:rgb(188, 26, 158);
 	color:#fff;
 }
 
 section h2 span {
 	padding:10px 30px;
-	border: solid 1px rgba(26, 188, 156, 1);
+	border: solid 1px rgb(188, 26, 172);
 	transition: all .4s;
 }
 
@@ -587,11 +538,11 @@ section.signup #msg {
 }
 
 section.signup #msg .error{
-	color:#ff0000;
+	color:#e283b4;
 }
 
 section.signup #msg .ok{
-	color:#007F00;
+	color:#007f24;
 }
 
 
@@ -599,7 +550,7 @@ section.signup #msg .ok{
 .more_review {
 	margin:50px auto 0;
 	display: block;
-    background-color: rgba(26, 188, 156, 1);
+    background-color: rgb(26, 188, 156, 1);
     color: white;
     padding: 14px 20px;
     border: 1px solid rgba(26, 188, 156, 1);
@@ -713,7 +664,7 @@ section.signup #msg .ok{
 }
 
 .book_top .light {
-	border-bottom: dotted 1px rgba(26, 188, 156, 1);
+	border-bottom: dotted 1px rgb(26, 188, 156, 1);
 }
 
 
@@ -897,7 +848,7 @@ section.anim .anim_button3 {
 	 color: #222;
   }
   50% {
-	  background-color: rgba(26, 188, 156, 1);
+	  background-color: rgb(26, 188, 156, 1);
 	  color: #fff;
   }
   100% {
