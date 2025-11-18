@@ -1,71 +1,78 @@
-// Dữ liệu mẫu (chuyển các bài đánh giá tĩnh cũ của bạn thành JSON)
-const initialReviews = [
-    { id: 1, title: 'Quidditch sau nhiều năm', book: 'Quidditch Qua Các Thời Đại', author: 'Ewelina Nowak', rating: 4, description: 'Tôi quay lại thế giới phù thủy để xem Quidditch đổi thay thế nào sau từng mùa giải; những pha tranh chấp quyết liệt và cảm giác hoài niệm khiến cuốn sách vẫn giữ trọn sức hút.', date: '10/11/2025', avatar: 'images/avatar/1.jpg' },
-    { id: 2, title: 'Liệu bạn có an toàn ngay trong nhà?', book: 'Kẻ Gần Kề', author: 'Daniel Ciupała', rating: 5, description: 'Một câu chuyện giật gân đặt ra câu hỏi về niềm tin giữa những người thân cận nhất; mỗi chương lại đẩy nhân vật đến giới hạn và buộc họ xác định đâu mới là nơi trú ẩn thật sự.', date: '08/11/2025', avatar: 'images/avatar/2.jpeg' },
-    { id: 3, title: 'Cuốn sách tuyệt vời về lịch sử Ba Lan', book: 'Kamienie na szaniec', author: 'Adam Konieczny', rating: 5, description: 'Tác phẩm được kể như một bản tường thuật giàu chất liệu tư liệu với những nhân vật có thật. Câu chuyện dựa trên nhật ký của chàng hướng đạo sinh mang bí danh Zośka...', date: '05/11/2025', avatar: 'images/avatar/3.jpeg' }
-];
+// =======================================================
+// Tệp: js/review-display.js (ĐÃ GỠ LỖI CÚ PHÁP)
+// =======================================================
 
-// Hàm khởi tạo dữ liệu mẫu nếu Local Storage trống
-function initializeReviews() {
-    if (!localStorage.getItem('bookReviews')) {
-        localStorage.setItem('bookReviews', JSON.stringify(initialReviews));
-    }
-}
-
-// Hàm render sao
-function renderStars(rating) {
-    let starsHtml = '';
-    for (let i = 1; i <= 5; i++) {
-        starsHtml += `<span class="fas fa-star ${i <= rating ? 'filled' : ''}"></span>`;
-    }
-    return `<div class="review-rating">${starsHtml}</div>`;
-}
-
-// Hàm tải và hiển thị đánh giá
-function loadReviews() {
-    const container = document.getElementById('reviewListContainer');
-    const reviews = JSON.parse(localStorage.getItem('bookReviews')) || [];
-    
-    container.innerHTML = ''; 
-
-    reviews.forEach(review => {
-        const reviewDiv = document.createElement('div');
-        reviewDiv.className = 'review';
-        
-        reviewDiv.innerHTML = `
-            <div class="review_info col_60p">
-                <a href="#"><h4>${review.title}</h4></a>
-                <div class="description">
-                    ${renderStars(review.rating)}
-                    <p>Đánh giá sách: <strong>${review.book}</strong></p>
-                    <p>${review.description.substring(0, 250)}...</p>
-                    <small>Đăng bởi ${review.author} vào: ${review.date}</small>
-                </div>
-            </div>
-            <div class="review_author col_40p">
-                <div class="avatar">
-                    <img alt="ảnh đại diện" src="${review.avatar || 'images/avatar/default-user.png'}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;"/>
-                </div>
-                <h4>${review.author}</h4>
-            </div>
-        `;
-        container.appendChild(reviewDiv);
-    });
-
-    if (reviews.length === 0) {
-        container.innerHTML = '<p style="text-align: center; padding: 30px;">Chưa có bài đánh giá nào. Hãy là người đầu tiên!</p>';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    initializeReviews(); 
-    loadReviews();      
-    // ... trong hàm loadReviews ...
-reviews.forEach(review => {
-    // ... tạo reviewDiv ...
-    reviewDiv.innerHTML = `
-        <img alt="ảnh đại diện" src="${review.avatar || defaultAvatar}" .../>
-        `;
-    // ...
+// Khởi tạo ứng dụng Firebase (SỬ DỤNG LẠI CẤU HÌNH CỦA BẠN)
+const app = firebase.initializeApp({
+    // Cấu hình Firebase của bạn
+    apiKey: "AIzaSyBeu3hd6O4AvqPH6IG2g7FwaGNAxk4ztMo",
+    authDomain: "bookreviewapp-9638e.firebaseapp.com",
+    projectId: "bookreviewapp-9638e",
+    storageBucket: "bookreviewapp-9638e.firebasestorage.app",
+    messagingSenderId: "463378223084",
+    appId: "1:463378223084:web:2468ab66a2d575adaf7ac9",
+    measurementId: "G-GK8JLDVGYF"
 });
-});
+
+const db = app.firestore(); 
+const reviewsContainer = document.getElementById('reviewListContainer'); 
+
+async function loadReviews() {
+    if (!reviewsContainer) {
+        console.error("Lỗi: Không tìm thấy phần tử #reviewListContainer.");
+        return; 
+    }
+
+    try {
+        // 1. Truy vấn Dữ liệu: Lấy 10 bài đánh giá mới nhất
+        const reviewsSnapshot = await db.collection('reviews')
+            .orderBy('ngayDang', 'desc')
+            .limit(10)
+            .get();
+
+        reviewsContainer.innerHTML = ''; // Xóa thông báo 'Đang tải'
+
+        if (reviewsSnapshot.empty) {
+            reviewsContainer.innerHTML = '<p style="text-align: center; color: #888;">Chưa có bài đánh giá nào. Hãy là người đầu tiên!</p>';
+            return;
+        }
+
+        // 2. Lặp qua từng bài đánh giá và tạo HTML
+        reviewsSnapshot.forEach(doc => {
+            const review = doc.data(); 
+            
+            // Xử lý Ngôi sao hiển thị (Ví dụ: 4 sao -> ★★★★☆)
+            const starsHTML = '★'.repeat(review.diemSao) + '☆'.repeat(5 - review.diemSao);
+            
+            // Xử lý Ngày đăng
+            const dateStr = review.ngayDang && typeof review.ngayDang.toDate === 'function' 
+                            ? review.ngayDang.toDate().toLocaleDateString('vi-VN') 
+                            : 'N/A';
+            
+            const reviewElement = document.createElement('article');
+            reviewElement.classList.add('single-review-item'); // Dùng class này để CSS
+            
+            reviewElement.innerHTML = `
+                <div class="review-header">
+                    <h3 class="review-title">${review.tieuDe}</h3>
+                    <div class="review-rating-display">${starsHTML}</div>
+                </div>
+                <p class="book-info">Sách: <strong>${review.tenSach}</strong></p>
+                <p class="review-content">${review.noiDung}</p>
+                <div class="review-meta">
+                    <small>Đăng bởi: ${review.tenNguoiDang} vào ${dateStr}</small>
+                </div>
+            `;
+            
+            reviewsContainer.appendChild(reviewElement);
+        });
+
+    } catch (error) {
+        console.error("Lỗi khi tải bài đánh giá (Vui lòng kiểm tra Firebase Rules): ", error);
+        // Lỗi thường là 403 (Permission Denied) nếu Rules chưa cho phép đọc
+        reviewsContainer.innerHTML = '<p style="text-align: center; color: red;">Không thể tải bài đánh giá. Vui lòng kiểm tra Console (F12).</p>';
+    }
+}
+
+// Gọi hàm loadReviews khi toàn bộ trang web tải xong
+window.onload = loadReviews;

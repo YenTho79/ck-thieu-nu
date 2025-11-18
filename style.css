@@ -387,13 +387,13 @@ section h2  {
 }
 
 section h2 span:hover  {
-	background-color:rgb(188, 26, 158);
+	background-color:rgb(26, 188, 156, 1);
 	color:#fff;
 }
 
 section h2 span {
 	padding:10px 30px;
-	border: solid 1px rgb(188, 26, 172);
+	border: solid 1px rgb(26, 188, 156, 1);
 	transition: all .4s;
 }
 
@@ -2744,15 +2744,101 @@ section.contact .contact_form {
 }
 .create-review-container textarea { resize: vertical; height: 150px; }
 
-/* --- SAO ĐÁNH GIÁ --- */
-.rating-stars { font-size: 30px; color: #ccc; margin-bottom: 20px; }
-.rating-stars span { cursor: pointer; transition: color 0.2s; }
-.rating-stars span.selected { color: #ffc107; }
+/* Tệp: style.css */
 
-/* SAO HIỂN THỊ (review-page.html) */
-.review-rating { color: #ccc; font-size: 1.2em; margin-bottom: 5px; }
-.review-rating .fa-star.filled { color: #ffc107; } /* Màu sao được tô */
+/* Tệp: style.css */
 
+/* 1. Đảm bảo sao có thể nhấp được và có màu mặc định */
+.rating-stars .fa-star {
+    cursor: pointer;
+    color: #ccc; /* Màu xám mặc định */
+    /* Quan trọng: Đảm bảo không có 'pointer-events: none;' ở đâu đó */
+}
+
+/* 2. Quy tắc tô màu SAU KHI CLICK (Javascript đã gán class .checked) */
+/* Dùng !important để ghi đè các quy tắc màu khác, nếu có xung đột */
+.rating-stars .fa-star.checked {
+    color: gold !important; 
+}
+
+/* 3. Quy tắc cho trạng thái RÊ CHUỘT (Nếu bạn muốn nó hoạt động) */
+.rating-stars .fa-star:hover,
+.rating-stars .fa-star:hover ~ .fa-star {
+    color: orange; /* Hoặc màu khác */
+}
+/* CSS cho trang review-page.html */
+.review-rating-display {
+    font-size: 1.2em; /* Kích thước sao */
+    color: gold;      /* Màu vàng cho sao đã chọn */
+    margin-top: 5px;
+}
+
+/* ======================================= */
+/* CSS CHO BÀI ĐÁNH GIÁ TRÊN REVIEW-PAGE.HTML */
+/* ======================================= */
+
+/* Tạo khung chứa cho từng bài đánh giá */
+.single-review-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.review-title {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Tô màu vàng cho sao hiển thị (được tạo bằng ký tự ★ trong JS) */
+.review-rating-display {
+    font-size: 1.5em;
+    color: gold; 
+    letter-spacing: 2px;
+}
+
+.book-info {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.review-content {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.review-meta small {
+    display: block;
+    color: #888;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+/* Ví dụ về CSS cho nút "Thêm Bài Đánh Giá Mới" */
+.add-review-btn {
+    display: inline-block;
+    background-color: #28a745; /* Màu xanh lá cây */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 /* Nút Đăng/Thêm */
 .submit-button { 
     padding: 12px 25px; 
