@@ -2746,33 +2746,22 @@ section.contact .contact_form {
 
 /* Tệp: style.css */
 
-/* Tệp: style.css */
-
-/* 1. Đảm bảo sao có thể nhấp được và có màu mặc định */
-.rating-stars .fa-star {
-    cursor: pointer;
-    color: #ccc; /* Màu xám mặc định */
-    /* Quan trọng: Đảm bảo không có 'pointer-events: none;' ở đâu đó */
-}
-
-/* 2. Quy tắc tô màu SAU KHI CLICK (Javascript đã gán class .checked) */
-/* Dùng !important để ghi đè các quy tắc màu khác, nếu có xung đột */
+/* Quy tắc bắt buộc để sao giữ lại màu sau khi click (JavaScript thêm class 'checked') */
 .rating-stars .fa-star.checked {
     color: gold !important; 
 }
 
-/* 3. Quy tắc cho trạng thái RÊ CHUỘT (Nếu bạn muốn nó hoạt động) */
+/* Quy tắc để tô màu cho sao khi rê chuột */
 .rating-stars .fa-star:hover,
 .rating-stars .fa-star:hover ~ .fa-star {
-    color: orange; /* Hoặc màu khác */
-}
-/* CSS cho trang review-page.html */
-.review-rating-display {
-    font-size: 1.2em; /* Kích thước sao */
-    color: gold;      /* Màu vàng cho sao đã chọn */
-    margin-top: 5px;
+    color: orange; 
 }
 
+/* Quy tắc cơ bản */
+.rating-stars .fa-star {
+    cursor: pointer;
+    color: #ccc; /* Màu xám mặc định */
+}
 /* ======================================= */
 /* CSS CHO BÀI ĐÁNH GIÁ TRÊN REVIEW-PAGE.HTML */
 /* ======================================= */
@@ -2839,6 +2828,7 @@ section.contact .contact_form {
     font-weight: bold;
     margin-bottom: 20px;
 }
+
 /* Nút Đăng/Thêm */
 .submit-button { 
     padding: 12px 25px; 
