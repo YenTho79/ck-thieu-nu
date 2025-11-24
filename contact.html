@@ -15,24 +15,42 @@
 	<script src="js/menu_mobile.js"></script>
     <style>
         /* ==================================== */
-        /* CSS CHUNG */
-        /* ==================================== */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 10px; 
-            line-height: 1.4; 
-            background-color: #f4f4f4;
-            color: #333;
-            font-size: 14px; 
-        }
-        .container {
-            max-width: 1200px; /* Tăng chiều rộng tối đa cho 3 cột */
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px; 
-            border-radius: 6px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-        }
+/* CSS CHUNG */
+/* ==================================== */
+/* ==================================== */
+/* CHỈNH SỬA CHO STICKY FOOTER */
+/* ==================================== */
+
+html {
+    height: 100%; /* Đảm bảo thẻ html chiếm hết chiều cao màn hình */
+}
+body {
+    /* Đảm bảo body chiếm hết chiều cao của html */
+    height: 100%; 
+    /* Dùng Flexbox để quản lý bố cục dọc (Header, Content, Footer) */
+    display: flex;
+    flex-direction: column;
+    /* Loại bỏ lề sát mép trình duyệt */
+    font-family: Arial, sans-serif;
+    /* ⭐ ĐIỀU CHỈNH: Đặt margin về 0 để loại bỏ lề trình duyệt */
+    margin: 0; 
+    
+    line-height: 1.4; 
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 14px; 
+}
+
+/* KHÔNG SỬA CLASS .container DƯỚI ĐÂY! */
+/* Class này giữ nguyên để không ảnh hưởng đến index.html */
+.container {
+    max-width: 1200px; 
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px; 
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
         h1 {
             text-align: center;
             color: #464749;
@@ -140,6 +158,105 @@
                 min-height: auto;
             }
         }
+        /* ================================================= */
+/* QUY TẮC MỚI: CONTACT FULL-WIDTH */
+/* ================================================= */
+
+/* Thiết lập body để loại bỏ khoảng trắng sát trình duyệt */
+body {
+    margin: 0; /* Ghi đè margin: 10px; */
+}
+
+/* ================================================= */
+/* QUY TẮC MỚI: CONTACT FULL-WIDTH (Dùng cho HTML đã đổi tên) */
+/* ================================================= */
+
+.full-contact-wrapper {
+    /* ⭐ LOẠI BỎ GIỚI HẠN CHIỀU RỘNG */
+    max-width: none; 
+    width: 100%;
+    
+    /* ⭐ LOẠI BỎ CĂN GIỮA VÀ LỀ TRÊN/DƯỚI/TRÁI/PHẢI */
+    margin: 0; 
+    
+    /* Áp dụng lại các kiểu dáng cơ bản của container */
+    background: #fff;
+    
+    /* ⭐ CHỈ GIỮ PADDING TRÊN/DƯỚI, LOẠI BỎ PADDING NGANG */
+    padding: 20px 0; 
+    
+    /* Loại bỏ bo góc và đổ bóng để nó trông như một dải liền mạch */
+    border-radius: 0; 
+    box-shadow: none; 
+}
+
+/* Đảm bảo nội dung bên trong có khoảng trống hai bên */
+.full-contact-wrapper .contact-grid {
+    /* ⭐ THÊM PADDING NGANG CHO NỘI DUNG BÊN TRONG */
+    padding: 0 30px; 
+    
+    /* Giữ margin dọc, thêm margin ngang 0 */
+    margin: 15px 0; 
+}
+/* ==================================== */
+/* CĂN CHỈNH VÀ KIỂU DÁNG FOOTER */
+/* ==================================== */
+
+.footer {
+    /* Quan trọng: Căn giữa tất cả văn bản và nội dung */
+    text-align: center; 
+    
+    /* Thiết lập font và màu nền/chữ */
+    background-color: white; /* Nếu mẫu là nền trắng */
+    color: #333; /* Màu chữ cơ bản */
+    padding: 20px 0; 
+}
+
+.footer h3 {
+    /* Đảm bảo tiêu đề được in đậm và kích thước phù hợp */
+    font-weight: bold;
+    font-size: 1.5em; /* Có thể điều chỉnh kích thước */
+    margin-bottom: 10px;
+}
+
+.footer p {
+    margin: 5px 0; /* Khoảng cách giữa các dòng */
+}
+
+/* Kiểu dáng cho các biểu tượng mạng xã hội */
+.footer a {
+    color: #007bff; /* Màu xanh nổi bật cho liên kết */
+    text-decoration: none;
+    font-weight: bold;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Căn giữa cho cả dòng Designed by... */
+.footer p:last-child {
+    font-weight: bold;
+    margin-top: 15px;
+}
+.contact_info {
+    /* Điều chỉnh để nội dung không bị dính sát mép */
+    padding: 0 30px; 
+}
+/* Thẻ chứa nội dung chính (phần nằm trên footer) */
+.full-contact-wrapper {
+    /* Quan trọng: Cho phép khối này giãn nở để đẩy footer xuống */
+    flex-grow: 1; 
+    
+    /* Các thuộc tính khác (width, max-width) giữ nguyên như đã chỉnh sửa trước đó */
+    max-width: none; 
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
+    /* ... các thuộc tính khác ... */
+}
+
+/* ⭐ Tùy chọn: Nếu header nằm ngoài .full-contact-wrapper, 
+   hãy áp dụng flex-grow: 1 cho một thẻ chứa duy nhất bao quanh nội dung (trừ footer) */
     </style>
 </head>
 <body>
@@ -166,9 +283,9 @@
 				</ul>	
 			</nav>
 			<a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 		</header>
-<div class="container">
-
+<div class="full-contact-wrapper"> 
     <h1></h1>
     <p style="text-align: center; margin-bottom: 50px;"></p>
 
@@ -177,10 +294,10 @@
         <div class="contact-col">
             <h2>⭐Thông Tin Liên Lạc</h2>
             <div class="contact-info">
-                <p>📍 **Địa chỉ:** Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-                <p>📞 **Hotline:** <a href="tel:1900 1500">1900 1500</a> (Hỗ trợ 24/7)</p>
-                <p>📧 **Email:** <a href="mailto:Thieunu@BDU.com">Thieunu@BDU.com</a></p>
-                <p>⏰ **Giờ hoạt động:** T2 - CN: 8:00 - 17:30</p>
+                <p>📍 Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
+                <p>📞 Hotline: <a href="tel:1900 1500">1900 1500</a></p>
+                <p>📧 Email: <a href="mailto:Thieunu@BDU.com">Thieunu@BDU.com</a></p>
+                <p>⏰ Giờ hoạt động: T2 - CN: 8:00 - 17:30</p>
             </div>
         </div>
 
@@ -205,21 +322,17 @@
             </div>
         </div>
         
-        <div class="contact-col">
+       <div class="contact-col">
             <h2>⭐Vị Trí & Kết Nối</h2>
             
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.019519416203!2d105.79255011493268!3d21.031580985997288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab79737119e7%3A0x868b7b2521f75960!2zSOG7ho2kgUGhvbmc!5e0!3m2!1svi!2svn!4v1639016912345" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-           
-        
-   
-    
-		<footer class="footer" id="contact">
+            </div> </div> <footer class="footer" id="contact"> 
         <div class="contact_info">
             <h3>Liên Hệ Chúng Mình Nhé <i class="fas fa-paper-plane"></i></h3>
-			<p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
+            <p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
             <p>
                 Theo dõi tại:
                 <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
@@ -227,7 +340,7 @@
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
             </p>
         </div>
-        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
+        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ © 2025</p>
     </footer>
 		</div>
 	</div>

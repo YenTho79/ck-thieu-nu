@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap&subset=latin-ext" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>	
 	<script src="js/menu.js"></script>	
@@ -65,19 +66,24 @@
 				<ul id="menu_navigation" class="menu" >
 					<li class=""><a href="index.html">Trang chủ</a></li>
 						<li><a href="menu.html">Sách</a></li>
-						<li class="menu_has_children" ><a href="review-page.html">Bài viết</a>
-						<ul class="sub-menu">
-							<li><a href="review.html">Bài đánh giá 1</a></li>
-							<li><a href="review.html">Bài đánh giá 2</a><ul class="sub-menu">
-							<li><a href="review.html">Bài đánh giá 1</a></li>
-							<li><a href="review.html">Bài đánh giá 2</a></li>
-							<li><a href="review.html">Bài đánh giá 3</a></li>
-						</ul></li>
-							<li><a href="review.html">Bài đánh giá 3</a></li>
-						</ul>
-						</li>
+						<li class="menu_has_children" >
+    <a href="#baiviet">Bài viết</a>
+    
+    <ul class="sub-menu">
+        <li><a href="review.html">Bài đánh giá 1</a></li>
+        
+        <li><a href="review.html">Bài đánh giá 2</a>
+            <ul class="sub-menu">
+                <li><a href="review.html">Bài đánh giá 1</a></li>
+                <li><a href="review.html">Bài đánh giá 2</a></li>
+                <li><a href="review.html">Bài đánh giá 3</a></li>
+            </ul>
+        </li>
+        <li><a href="review.html">Bài đánh giá 3</a></li>
+    </ul>
+</li>
 						<li ><a href="review.html">Thêm bài đánh giá</a></li>
-						<li><a href="contact.html">Liên hệ</a></li>
+						<li><a href="#lienhe">Liên hệ</a></li>
 				</ul>	
 			</nav>
 			<a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>
@@ -219,7 +225,7 @@
 				</div>
 				
 			</section>
-			<section class="review_list">
+			<section class="review_list" id="baiviet">
 				<h2>⭐⭐⭐Bài đánh giá nổi bật⭐⭐⭐</h2>
 				<div class="review_wrap" id="reviews" >
 					<div class="review">
@@ -299,15 +305,15 @@
 				</div>
 				<input class="more_review" type="button" value="Xem thêm bài đánh giá" onclick="getData('reviews.txt', 'reviews')" >
 			</section>
-			<div class="contact-grid">
+		<div class="contact-grid" id="lienhe">
         
         <div class="contact-col">
             <h2>⭐⭐⭐Thông Tin Liên Lạc</h2>
             <div class="contact-info">
-                <p>📍 **Địa chỉ:** Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-                <p>📞 **Hotline:** <a href="tel:1900 1500">1900 1500</a> (Hỗ trợ 24/7)</p>
-                <p>📧 **Email:** <a href="mailto:Thieunu@BDU.com">Thieunu@BDU.com</a></p>
-                <p>⏰ **Giờ hoạt động:** T2 - CN: 8:00 - 17:30</p>
+                <p>📍 Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
+                <p>📞 Hotline: <a href="tel:1900 1500">1900 1500</a></p>
+                <p>📧 Email: <a href="mailto:Thieunu@BDU.com">Thieunu@BDU.com</a></p>
+                <p>⏰ Giờ hoạt động: T2 - CN: 8:00 - 17:30</p>
             </div>
         </div>
 

@@ -2816,7 +2816,9 @@ section.contact .contact_form {
     border-top: 1px solid #eee;
     padding-top: 10px;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 /* Ví dụ về CSS cho nút "Thêm Bài Đánh Giá Mới" */
 .add-review-btn {
     display: inline-block;
