@@ -1,386 +1,91 @@
 <!doctype html>
-<html lang="vi" dir="ltr"> 
-<head>     
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-	<title>Trang chủ</title> 
-	<meta name="description" content="Trang web dành cho những người yêu sách"> 
-	<meta name="keywords" content="sách, đánh giá, dịch vụ, độc giả, tác giả"> 
-	<meta name="author" content="Piotr"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap&subset=latin-ext" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>	
-	<script src="js/menu.js"></script>	
-	<script src="js/menu_mobile.js"></script>	
-	<script src="js/form_jquery.js"></script>	
-	<script src="js/ajax.js"></script>
-	<!-- ⭐⭐⭐ STYLE LOADING THIẾU NỮ ⭐⭐⭐ -->
-<style>
-#loading {
-	position: fixed;
-	inset: 0;
-	background: #0f0f0f;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	z-index: 99999;
-	font-family: "Segoe UI", sans-serif;
-}
-.progress-container {
-	width: 60%;
-	background: #f6cee2;
-	height: 12px;
-	border-radius: 20px;
-	overflow: hidden;
-}
-.progress-bar {
-	width: 0%;
-	height: 100%;
-	background: #eb49b5;
-	border-radius: 20px;
-	transition: width 1s ease;
-}
-#loading p {
-	margin-top: 20px;
-	font-size: 18px;
-	color: #efe4eb;
-}
-</style>
-</head> 
+<html lang="vi" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Thieu Nu | Intro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mo dau nhe cho hanh trinh doc va review sach tren Thieu Nu">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d0b16;
+            --stroke: rgba(255, 255, 255, 0.08);
+            --text: #f6f3ff;
+            --muted: #b9b5c9;
+            --accent: #f160b1;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 102, 170, 0.12), transparent 35%),
+                        radial-gradient(circle at 80% 0%, rgba(109, 211, 255, 0.2), transparent 32%),
+                        var(--bg);
+            color: var(--text);
+            font-family: "Space Grotesk", "Segoe UI", sans-serif;
+            overflow: hidden;
+        }
+        #loading {
+            text-align: center;
+            display: grid;
+            gap: 14px;
+            padding: 24px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--stroke);
+            box-shadow: 0 18px 46px rgba(0, 0, 0, 0.35);
+        }
+        .progress-container {
+            width: min(520px, 80vw);
+            background: rgba(255, 255, 255, 0.08);
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--stroke);
+        }
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, #f160b1, #f48d65);
+            border-radius: 20px;
+            transition: width 0.6s ease;
+        }
+        #loading p {
+            margin: 0;
+            font-size: 17px;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
 <body>
-	<!-- ⭐⭐⭐ LOADING TRƯỚC KHI VÀO WEB ⭐⭐⭐ -->
-<div id="loading">
-	<div class="progress-container">
-		<div class="progress-bar" id="progressBar"></div>
-	</div>
-	<p>⭐⭐⭐ Welcom To Thiếu Nữ…</p>
-</div>
-
-	<div id="top_bg_home" class="top">
-		<header id="header" class="ghost_menu">
-			<div class="logo"><img src="images/logo.png" alt="logo" /></div>
-			<nav id="navigation" class="top_menu" >
-				<ul id="menu_navigation" class="menu" >
-					<li class=""><a href="index.html">Trang chủ</a></li>
-						<li><a href="#sach">Sách</a></li>
-						<li class="menu_has_children" >
-    <a href="#baiviet">Bài viết</a>
-    
-    <ul class="sub-menu">
-        <li><a href="review.html">Bài đánh giá 1</a></li>
-        
-        <li><a href="review.html">Bài đánh giá 2</a>
-            <ul class="sub-menu">
-                <li><a href="review.html">Bài đánh giá 1</a></li>
-                <li><a href="review.html">Bài đánh giá 2</a></li>
-                <li><a href="review.html">Bài đánh giá 3</a></li>
-            </ul>
-        </li>
-        <li><a href="review.html">Bài đánh giá 3</a></li>
-    </ul>
-</li>
-						<li ><a href="review.html">Thêm bài đánh giá</a></li>
-						<li><a href="#lienhe">Liên hệ</a></li>
-				</ul>	
-			</nav>
-			<a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>
-		</header>
-		<div id="parallax" class="bg"></div>
-		<div class="container">
-			<div class="container2">
-				<h2 class="title">Không gian của bạn trên mạng - Đọc! Viết! Giới thiệu!</h2>
-				<p id="plasuj" class="description">⭐⭐⭐Trang web dành cho những người yêu sách.<br/> Duyệt kho sách</span>, viết đánh giá, tạo thư viện của riêng bạn...⭐⭐⭐</p>
-			</div>
-		</div>
-	</div>
-	<div id="main">
-		<div class="content full_width">
-			<section class="books" id="sach">
-				<h2>⭐⭐⭐Sách mới nhất⭐⭐⭐</h2>
-				<div class="wrap book_main_list">
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/ka.jpg" />
-							<div class="info">
-								<h5>⭐Kamienie na szaniec</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book1.html">
-							<img class="cover" alt="bìa sách" src="images/covers/harry.jpg" />
-							<div class="info">
-								<h5>⭐Harry Potter i Więzień Azkabanu</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book2.html">
-							<img class="cover" alt="bìa sách" src="images/covers/pies.jpg" />
-							<div class="info">
-								<h5>⭐Był sobie pies</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book3.html">
-							<img class="cover" alt="bìa sách" src="images/covers/naznaczeni.jpg" />
-							<div class="info">
-								<h5>⭐Naznaczeni śmiercią</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book4.html">
-							<img class="cover" alt="bìa sách" src="images/covers/mitologia.jpg" />
-							<div class="info">
-								<h5>⭐Mitologia nordycka</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/diabolika.jpg" />
-							<div class="info">
-								<h5>⭐Diabolika</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/juz-mnie-nie-oszukasz.jpg" />
-							<div class="info">
-								<h5>⭐Już mnie nie oszukasz</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/pragnienie.jpg" />
-							<div class="info">
-								<h5>⭐Pragnienie</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/fantastyczne.jpg" />
-							<div class="info">
-								<h5>⭐Fantastyczne zwierzęta i jak je znaleźć</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/ksiega.jpg" />
-							<div class="info">
-								<h5>⭐Księga snów</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/quidditch.jpg" />
-							<div class="info">
-								<h5>⭐Quidditch przez wieki</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/chata.jpg" />
-							<div class="info">
-								<h5>⭐Chata</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/milczenie.jpg" />
-							<div class="info">
-								<h5>⭐Milczenie</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/królestwo.jpg" />
-							<div class="info">
-								<h5>⭐Królestwo kanciarzy</h5>
-							</div>
-						</a>
-					</div>
-					<div class="book">
-						<a href="book.html">
-							<img class="cover" alt="bìa sách" src="images/covers/spij-spokojnie.jpg" />
-							<div class="info">
-								<h5>⭐Śpij spokojnie</h5>
-							</div>
-						</a>
-					</div>
-					
-				</div>
-				
-			</section>
-			<section class="review_list" id="baiviet">
-				<h2>⭐⭐⭐Bài đánh giá nổi bật⭐⭐⭐</h2>
-				<div class="review_wrap" id="reviews" >
-					<div class="review">
-						<div class="review_body col_60p">
-							<div class="review_info">
-								<a href="review.html">
-								<div class="avatar">
-									<img alt="ảnh đại diện" src="images/avatar/3.jpeg" />
-								</div>
-								<div class="review_text">
-									<h3>Cuốn sách tuyệt vời về lịch sử Ba Lan</h3>
-									<p>Gần đây tôi đã đọc cuốn &quot;Kamienie na szaniec&quot; của Aleksander Kamiński. Tác phẩm mang phong cách ký sự tài liệu, kể lại các sự kiện có thật cùng những nhân vật lịch sử sống động. Một điều thú vị là chính tựa sách cũng được tác giả lấy cảm hứng từ một bài thơ nổi tiếng...
-									</p>
-								</div>
-								</a>
-							</div>
-						</div>
-						<div class="cover col_40p">
-							<img alt="bìa sách" src="images/covers/ka.jpg" />
-						</div>
-					</div>
-					<div class="review">
-						<div class="review_body col_60p">
-							<div class="review_info">
-								<a href="review.html">
-								<div class="avatar">
-									<img alt="ảnh đại diện" src="images/avatar/2.jpeg" />
-								</div>
-								<div class="review_text">
-									<h3>Quidditch sau nhiều năm</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen...
-									</p>
-								</div>
-								</a>
-							</div>
-						</div>
-						<div class="cover col_40p">
-							<img alt="bìa sách" src="images/covers/quidditch.jpg" />
-						</div>
-					</div>
-					<div class="review">
-						<div class="review_body col_60p">
-							<div class="review_info">
-								<a href="review.html">
-								<div class="avatar">
-									<img alt="ảnh đại diện" src="images/avatar/4.jpeg" />
-								</div>
-								<div class="review_text">
-									<h3>Bạn có thực sự an toàn ngay trong nhà?</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen...</p>
-								</div>
-								</a>
-							</div>
-						</div>
-						<div class="cover col_40p">
-							<img alt="bìa sách" src="images//covers/spij-spokojnie.jpg" />
-						</div>
-					</div>
-					<div class="review">
-						<div class="review_body col_60p">
-							<div class="review_info">
-								<a href="review.html">
-								<div class="avatar">
-									<img alt="ảnh đại diện" src="images/avatar/1.jpg" />
-								</div>
-								<div class="review_text">
-									<h3>Muốn chiến thắng thì phải chơi!</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen...</p>
-								</div>
-								</a>
-							</div>
-						</div>
-						<div class="cover col_40p">
-							<img alt="bìa sách" src="images/covers/diabolika.jpg" />
-						</div>
-					</div>
-				</div>
-				<input class="more_review" type="button" value="Xem thêm bài đánh giá" onclick="getData('reviews.txt', 'reviews')" >
-			</section>
-		<div class="contact-grid" id="lienhe">
-        
-        <div class="contact-col">
-            <h2>⭐⭐⭐Thông Tin Liên Lạc</h2>
-            <div class="contact-info">
-                <p>📍 Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-                <p>📞 Hotline: <a href="tel:1900 1500">1900 1500</a></p>
-                <p>📧 Email: <a href="mailto:Thieunu@BDU.com">Thieunu@BDU.com</a></p>
-                <p>⏰ Giờ hoạt động: T2 - CN: 8:00 - 17:30</p>
-            </div>
+    <div id="loading">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
-
-        <div class="contact-col">
-            <h2>⭐⭐⭐Gửi Tin Nhắn Nhanh</h2>
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <div>
-                        <label for="name">Họ và Tên (*)</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="email">Email (*)</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div>
-                        <label for="message">Nội dung (*)</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">Gửi</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="contact-col">
-            <h2>⭐⭐⭐Vị Trí & Kết Nối</h2>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.019519416203!2d105.79255011493268!3d21.031580985997288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab79737119e7%3A0x868b7b2521f75960!2zSOG7ho2kgUGhvbmc!5e0!3m2!1svi!2svn!4v1639016912345" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-			<footer class="footer" id="contact">
-        <div class="contact_info">
-            <h3>Liên Hệ Chúng Mình Nhé <i class="fas fa-paper-plane"></i></h3>
-            <p>Email: 1234@student.bdu.edu.vn | Phone: 1900 1500</p>
-			<p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-            <p>
-                Theo dõi tại:
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://facebook.com/=" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            </p>
-        </div>
-        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
-    </footer>
-	<!-- ⭐⭐⭐ SCRIPT LOADING ⭐⭐⭐ -->
-<script>
-let bar = document.getElementById("progressBar");
-let load = 0;
-let interval = setInterval(() => {
-	load += Math.random() * 15;
-	if (load >= 100) {
-		load = 100;
-		clearInterval(interval);
-
-		setTimeout(() => {
-			document.getElementById("loading").style.opacity = "0";
-			setTimeout(() => {
-				document.getElementById("loading").style.display = "none";
-			}, 400);
-		}, 300);
-	}
-	bar.style.width = load + "%";
-}, 300);
-</script>
-		</div>
-	</div>
-
-	<script src="js/top_bg.js"></script>
-</body> 
-</html>   
+        <p>Welcome to Thiếu Nữ</p>
+    </div>
+    <script>
+    const bar = document.getElementById("progressBar");
+    let load = 0;
+    const interval = setInterval(() => {
+        load += Math.random() * 18;
+        if (load >= 100) {
+            load = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 250);
+        }
+        if (bar) {
+            bar.style.width = load + "%";
+        }
+    }, 260);
+    </script>
+</body>
+</html>

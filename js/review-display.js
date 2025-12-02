@@ -1,8 +1,7 @@
-// =======================================================
-// Tệp: js/review-display.js (ĐÃ SỬA LỖI REFERENCE ERROR)
-// =======================================================
+// -------------------------------------------------------
+// Hiển thị danh sách đánh giá từ Firestore
+// -------------------------------------------------------
 
-// --- KHỞI TẠO FIREBASE (PHẢI LÀ PHẦN ĐẦU TIÊN) ---
 const app = firebase.initializeApp({
     apiKey: "AIzaSyBeu3hd6O4AvqPH6IG2g7FwaGNAxk4ztMo",
     authDomain: "bookreviewapp-9638e.firebaseapp.com",
@@ -13,46 +12,50 @@ const app = firebase.initializeApp({
     measurementId: "G-GK8JLDVGYF"
 });
 
-const db = app.firestore(); 
-const reviewsContainer = document.getElementById('reviewListContainer'); 
+const db = app.firestore();
+const reviewsContainer = document.getElementById('reviewListContainer');
+const boardLead = document.querySelector('.board-header .lead');
 
+function renderStars(score) {
+    const safeScore = Math.max(0, Math.min(5, Number(score) || 0));
+    return '&#9733;'.repeat(safeScore) + '&#9734;'.repeat(5 - safeScore);
+}
 
-// --- HÀM TẢI VÀ HIỂN THỊ ĐÁNH GIÁ ---
 async function loadReviews() {
     if (!reviewsContainer) {
-        // Log lỗi nếu không tìm thấy container (giúp debug HTML)
-        console.error("Lỗi: Không tìm thấy phần tử #reviewListContainer."); 
-        return; 
+        console.error('Không tìm thấy #reviewListContainer.');
+        return;
+    }
+
+    if (boardLead) {
+        boardLead.innerHTML = '<i class="fas fa-hourglass-half"></i> Đang tải đánh giá...';
     }
 
     try {
-        // 1. Truy vấn Dữ liệu: Đổi tên biến để tránh lỗi reviews is not defined
         const reviewsSnapshot = await db.collection('reviews')
             .orderBy('ngayDang', 'desc')
             .limit(10)
             .get();
 
-        reviewsContainer.innerHTML = ''; // Xóa thông báo 'Đang tải'
+        reviewsContainer.innerHTML = '';
 
         if (reviewsSnapshot.empty) {
             reviewsContainer.innerHTML = '<p style="text-align: center; color: #888;">Chưa có bài đánh giá nào.</p>';
+            if (boardLead) {
+                boardLead.innerHTML = '<i class="fas fa-circle-info"></i> Hãy là người đầu tiên chia sẻ.';
+            }
             return;
         }
 
-        // 2. Lặp qua từng bài đánh giá
         reviewsSnapshot.forEach(doc => {
-            const review = doc.data(); 
-            
-            const starsHTML = '★'.repeat(review.diemSao) + '☆'.repeat(5 - review.diemSao);
-            
-            // Đảm bảo review.ngayDang tồn tại trước khi gọi toDate()
-            const dateStr = review.ngayDang && typeof review.ngayDang.toDate === 'function' 
-                            ? review.ngayDang.toDate().toLocaleDateString('vi-VN') 
-                            : 'N/A';
-            
+            const review = doc.data();
+            const starsHTML = renderStars(review.diemSao);
+            const dateStr = review.ngayDang && typeof review.ngayDang.toDate === 'function'
+                ? review.ngayDang.toDate().toLocaleDateString('vi-VN')
+                : 'N/A';
+
             const reviewElement = document.createElement('article');
-            reviewElement.classList.add('single-review-item'); 
-            
+            reviewElement.classList.add('single-review-item');
             reviewElement.innerHTML = `
                 <div class="review-header">
                     <h3 class="review-title">${review.tieuDe}</h3>
@@ -61,18 +64,22 @@ async function loadReviews() {
                 <p class="book-info">Sách: <strong>${review.tenSach}</strong></p>
                 <p class="review-content">${review.noiDung}</p>
                 <div class="review-meta">
-                    <small>Đăng bởi: ${review.tenNguoiDang} vào ${dateStr}</small>
+                    <small>Đăng bởi ${review.tenNguoiDang} vào ${dateStr}</small>
                 </div>
             `;
-            
             reviewsContainer.appendChild(reviewElement);
         });
 
+        if (boardLead) {
+            boardLead.innerHTML = '<i class="fas fa-check-circle"></i> Đã cập nhật mới nhất';
+        }
     } catch (error) {
-        console.error("Lỗi khi tải bài đánh giá (Vui lòng kiểm tra Firebase Rules): ", error);
+        console.error('Lỗi khi tải bài đánh giá:', error);
         reviewsContainer.innerHTML = '<p style="text-align: center; color: red;">Không thể tải bài đánh giá. Lỗi: ' + error.message + '</p>';
+        if (boardLead) {
+            boardLead.innerHTML = '<i class="fas fa-circle-exclamation"></i> Lỗi tải dữ liệu';
+        }
     }
 }
 
-// Gọi hàm khi toàn bộ trang web tải xong
 window.onload = loadReviews;

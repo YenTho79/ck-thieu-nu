@@ -1,99 +1,498 @@
-﻿<!doctype html>
-<html lang="vi" dir="ltr"> 
-<head>     
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-    <title>Thêm Bài Đánh Giá Mới</title> 
-    <meta name="description" content="Trang web dành cho những người yêu sách"> 
-    <meta name="keywords" content="sách, đánh giá, dịch vụ, độc giả, tác giả"> 
-    <meta name="author" content="Piotr"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="fontello/css/fontello.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>    
-    <script src="js/menu_mobile.js"></script>   
-    <script src="js/menu.js"></script> 
-</head> 
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viáº¿t Ä‘Ã¡nh giÃ¡ | GÃ³c SÃ¡ch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Crimson+Pro:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ink: #1a1612;
+            --sepia: #f5f0e6;
+            --cream: #faf8f3;
+            --parchment: #e8e0d0;
+            --gold: #b8956e;
+            --gold-light: #d4b896;
+            --burgundy: #6b3a3a;
+            --forest: #3d4f3d;
+            --shadow: rgba(26, 22, 18, 0.08);
+            --text: #3a3530;
+            --text-light: #6b6560;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--parchment); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 30px var(--shadow);
+            padding: 1rem 4rem;
+        }
+
+        .logo { display: inline-flex; align-items: center; text-decoration: none; }
+        .logo img { height: 52px; width: auto; display: block; }
+
+        nav { display: flex; gap: 2.2rem; align-items: center; }
+
+        nav a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding: 0.3rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s ease;
+        }
+        nav a.nav-login::after { display: none; }
+
+        nav a:hover::after { width: 100%; }
+        nav a:hover { color: var(--burgundy); }
+
+        .nav-cta {
+            background: var(--ink);
+            color: var(--cream) !important;
+            padding: 0.6rem 1.4rem !important;
+            border-radius: 2rem;
+            font-weight: 500;
+        }
+
+        .nav-cta::after { display: none; }
+        .nav-cta:hover { background: var(--burgundy); color: var(--cream) !important; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--ink);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .page-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 7rem 4rem 5rem;
+            background: linear-gradient(135deg, var(--sepia) 0%, var(--cream) 50%, var(--parchment) 100%);
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(184, 149, 110, 0.12) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 820px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--gold-light);
+            border-radius: 2rem;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.3rem, 6vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 1.2rem;
+        }
+
+        .page-hero h1 em { font-style: italic; color: var(--burgundy); }
+
+        .hero-subtitle {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            padding: 0.95rem 2.3rem;
+            border: none;
+            border-radius: 3rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+        }
+
+        .btn-primary { background: var(--ink); color: var(--cream); }
+        .btn-primary:hover { background: var(--burgundy); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(107, 58, 58, 0.2); }
+        .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+        .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+
+        .page-section { padding: 5rem 4rem; position: relative; }
+
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            color: var(--ink);
+        }
+        .section-subtitle {
+            color: var(--text-light);
+            max-width: 720px;
+            margin: 1rem auto 0;
+            font-size: 1.02rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: var(--sepia);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 18px 40px var(--shadow);
+            border: 1px solid rgba(184, 149, 110, 0.25);
+        }
+
+        form label {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--ink);
+            margin-bottom: 0.4rem;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(26, 22, 18, 0.1);
+            border-radius: 6px;
+            background: #fff;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(184, 149, 110, 0.18);
+        }
+
+        textarea { min-height: 160px; resize: vertical; line-height: 1.6; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .rating-stars {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin: 0.5rem 0 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-stars span {
+            cursor: pointer;
+            color: #c4b7a3;
+            font-size: 1.4rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .rating-stars span.selected,
+        .rating-stars span:hover,
+        .rating-stars span:hover ~ span {
+            color: var(--gold);
+        }
+
+        .rating-note { font-size: 0.95rem; color: var(--text-light); }
+
+        .inline-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.95rem;
+            color: var(--forest);
+            background: rgba(61, 79, 61, 0.08);
+            padding: 0.65rem 0.9rem;
+            border-radius: 8px;
+            border: 1px dashed rgba(61, 79, 61, 0.2);
+            margin-top: 0.6rem;
+        }
+
+        .form-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .form-actions .btn-primary { padding-inline: 2rem; }
+
+        .footer {
+            background: #0f0d0b;
+            padding: 3rem 4rem;
+            text-align: center;
+            color: rgba(250, 248, 243, 0.8);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-text a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 968px) {
+            header { padding: 1rem 2rem; }
+            .mobile-toggle { display: block; z-index: 101; }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background: var(--cream);
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -10px 0 50px var(--shadow);
+            }
+            nav.active { right: 0; }
+            nav a { font-size: 1.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            section { padding: 4rem 2rem; }
+            .page-hero { padding: 6rem 2rem 4rem; min-height: 60vh; }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero h1 { font-size: 2rem; }
+            .hero-subtitle { font-size: 1.05rem; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
 <body>
-    <header id="header">
-        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="logo" /></a></div>
-        <nav id="navigation" class="top_menu" >
-            <ul id="menu_navigation" class="menu" >
-                <li class=""><a href="index.html">Trang chủ</a></li>
-                <li><a href="menu.html">Sách</a></li>
-                <li class="menu_has_children" ><a href="review-page.html">Bài viết</a>
-                <ul class="sub-menu">
-                    <li><a href="review.html">Bài đánh giá 1</a></li>
-                    <li><a href="review.html">Bài đánh giá 2</a><ul class="sub-menu">
-                    <li><a href="review.html">Bài đánh giá 1</a></li>
-                    <li><a href="review.html">Bài đánh giá 2</a></li>
-                    <li><a href="review.html">Bài đánh giá 3</a></li>
-                    </ul></li>
-                    <li><a href="review.html">Bài đánh giá 3</a></li>
-                </ul>
-                </li>
-                <li><a href="review.html">Thêm bài đánh giá</a></li>
-                <li><a href="contact.html">Liên hệ</a></li>
-            </ul>   
+    <header id="header">
+        <a href="home.html" class="logo">
+            <img src="images/logo.png" alt="GÃ³c SÃ¡ch">
+        </a>
+        <nav id="nav">
+            <a href="home.html#sach">SÃ¡ch</a>
+            <a href="home.html#baiviet">BÃ i viáº¿t</a>
+            <a href="home.html#lienhe">LiÃªn há»‡</a>
+            <a href="login.html" class="nav-login" data-login-trigger>Đăng nhập</a>
+            <a href="review-page.html" class="nav-cta">Xem Ä‘Ã¡nh giÃ¡</a>
         </nav>
-        <a href="javascript:void(0);" class="navigation_control"><i class="icon-menu"></i></a>
-            </header>
-    
-    <div id="main" class="top_header">
-        <div class="content full_width" >
-            <div class="create-review-container">
-                <h2>✍️ Gửi Bài Đánh Giá Mới Của Bạn</h2>
+        <button class="mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
 
+    <section class="page-hero">
+        <div class="hero-content">
+            <span class="hero-badge">GÃ³c Ä‘Ã¡nh giÃ¡</span>
+            <h1>Chia sáº» <em>cáº£m nháº­n</em> cá»§a báº¡n vá» nhá»¯ng trang sÃ¡ch</h1>
+            <p class="hero-subtitle">Viáº¿t vÃ i dÃ²ng Ä‘á»ƒ káº¿t ná»‘i vá»›i cá»™ng Ä‘á»“ng yÃªu sÃ¡ch, lan tá»a cáº£m xÃºc vÃ  giÃºp Ä‘á»™c giáº£ khÃ¡c tÃ¬m Ä‘Æ°á»£c cuá»‘n sÃ¡ch há» sáº½ yÃªu thÃ­ch.</p>
+            <div class="hero-actions">
+                <a href="review-page.html" class="btn btn-ghost">Xem bÃ i Ä‘Ã¡nh giÃ¡</a>
+                <a href="#review-form" class="btn btn-primary">Báº¯t Ä‘áº§u viáº¿t</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section" id="review-form">
+        <div class="section-header">
+            <p class="section-label">BÃ i viáº¿t cá»§a báº¡n</p>
+            <h2 class="section-title">Gá»­i bÃ i Ä‘Ã¡nh giÃ¡ má»›i</h2>
+            <p class="section-subtitle">HÃ£y cho chÃºng tÃ´i biáº¿t cáº£m nháº­n cá»§a báº¡n vá» cuá»‘n sÃ¡ch. Má»™t tá»±a Ä‘á» rÃµ rÃ ng, ná»™i dung tá»« tá»‘n vÃ  Ä‘iá»ƒm sá»‘ sáº½ giÃºp ngÆ°á»i Ä‘á»c khÃ¡c dá»… theo dÃµi.</p>
+        </div>
+
+        <div class="form-grid">
+            <div class="form-card">
                 <form id="newReviewForm">
-                    <input type="text" id="reviewTitle" placeholder="Tiêu đề bài đánh giá" required>
-                    <input type="text" id="bookTitle" placeholder="Tên sách được đánh giá" required>
-                    <input type="text" id="reviewerName" placeholder="Tên của bạn" required value>
-                    
-                    <div class="rating-stars">
-                        Đánh giá: 
-                        <span data-rating="1" class="fas fa-star"></span>
-                        <span data-rating="2" class="fas fa-star"></span>
-                        <span data-rating="3" class="fas fa-star"></span>
-                        <span data-rating="4" class="fas fa-star"></span>
-                        <span data-rating="5" class="fas fa-star"></span>
-
-                        <input type="hidden" id="ratingValue" value="0" required>
+                    <div class="form-row">
+                        <div>
+                            <label for="reviewTitle">TiÃªu Ä‘á»</label>
+                            <input type="text" id="reviewTitle" placeholder="VÃ­ dá»¥: Má»™t chuyáº¿n phiÃªu lÆ°u khÃ³ quÃªn" required>
+                        </div>
+                        <div>
+                            <label for="bookTitle">TÃªn sÃ¡ch</label>
+                            <input type="text" id="bookTitle" placeholder="Nháº­p tÃªn sÃ¡ch báº¡n Ä‘ang Ä‘Ã¡nh giÃ¡" required>
+                        </div>
                     </div>
 
-                    <textarea id="reviewText" placeholder="Nội dung đánh giá chi tiết (tối thiểu 100 ký tự)" minlength="100" required></textarea>
-                    
-                    <button type="submit" class="submit-button">Đăng Bài Đánh Giá</button>
+                    <div class="form-row">
+                        <div>
+                            <label for="reviewerName">TÃªn cá»§a báº¡n</label>
+                            <input type="text" id="reviewerName" placeholder="TÃªn hiá»ƒn thá»‹ cÃ¹ng bÃ i viáº¿t" required>
+                        </div>
+                        <div>
+                            <label>Äiá»ƒm sá»‘</label>
+                            <div class="rating-stars">
+                                <span data-rating="1" class="fas fa-star"></span>
+                                <span data-rating="2" class="fas fa-star"></span>
+                                <span data-rating="3" class="fas fa-star"></span>
+                                <span data-rating="4" class="fas fa-star"></span>
+                                <span data-rating="5" class="fas fa-star"></span>
+                                <input type="hidden" id="ratingValue" value="0" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="reviewText">Ná»™i dung chi tiáº¿t</label>
+                    <textarea id="reviewText" placeholder="Tá»‘i thiá»ƒu 100 kÃ½ tá»±. Báº¡n thÃ­ch gÃ¬, há»c Ä‘Æ°á»£c gÃ¬, ai nÃªn Ä‘á»c cuá»‘n nÃ y..." minlength="100" required></textarea>
+
+                    <div class="inline-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Äá»«ng quÃªn kiá»ƒm tra láº¡i lá»—i chÃ­nh táº£ trÆ°á»›c khi gá»­i nhÃ©.</span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">ÄÄƒng bÃ i Ä‘Ã¡nh giÃ¡</button>
+                        <a href="review-page.html" class="btn btn-ghost">Xem danh sÃ¡ch bÃ i</a>
+                    </div>
                 </form>
             </div>
         </div>
-        
-        </div>
+    </section>
 
-    <script src="js/review.js"></script> 
-
-				<footer class="footer" id="contact">
-        <div class="contact_info">
-            <h3>Liên Hệ Chúng Mình Nhé <i class="fas fa-paper-plane"></i></h3>
-            <p>Email: 1234@student.bdu.edu.vn | Phone: 1900 1500</p>
-			<p>Địa chỉ: Hồ Chí Minh, 54 Đại lộ Bình Dương</p>
-            <p>
-                Theo dõi tại:
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a> |
-                <a href="https://facebook.com/=" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            </p>
-        </div>
-        <p style="margin-top: 10px;"><i class="fas fa-heart"></i> Designed by Thiếu Nữ &copy; 2025</p>
+    <footer class="footer">
+        <div class="footer-logo">ðŸ“š GÃ³c SÃ¡ch</div>
+        <p class="footer-text">Designed with care by Thiáº¿u Ná»¯ â€¢ 2025 â€¢ <a href="home.html#lienhe">LiÃªn há»‡</a></p>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>    
-    <script src="js/menu_mobile.js"></script>   
-    <script src="js/menu.js"></script> 
 
+    <script src="js/login-modal.js"></script>
+    <script>
+        const header = document.getElementById('header');
+        const nav = document.getElementById('nav');
+        const mobileToggle = document.getElementById('mobileToggle');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="js/review.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-
-    <script src="js/submit-review.js"></script> 
-
-</body> 
+    <script src="js/submit-review.js"></script>
+</body>
 </html>

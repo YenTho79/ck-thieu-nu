@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         saveAvatarBtn.disabled = true;
 
         // ** CHUYỂN HƯỚNG VỀ TRANG CHỦ **
-        window.location.href = 'index.html'; 
+        window.location.href = 'home.html'; 
     });
 
     // --- KHU VỰC 2: ĐỔI THÔNG TIN CƠ BẢN ---
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Thông tin cá nhân đã được cập nhật thành công!');
         
         // ** CHUYỂN HƯỚNG VỀ TRANG CHỦ **
-        window.location.href = 'index.html'; 
+        window.location.href = 'home.html'; 
     });
 
     // --- KHU VỰC 3: ĐỔI MẬT KHẨU ---
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         passwordForm.reset();
         
         // ** CHUYỂN HƯỚNG VỀ TRANG CHỦ **
-        window.location.href = 'index.html'; 
+        window.location.href = 'home.html'; 
     });
 
     // Tải dữ liệu khi trang load xong

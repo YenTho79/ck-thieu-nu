@@ -42,7 +42,7 @@ body {
 }
 
 /* KHÔNG SỬA CLASS .container DƯỚI ĐÂY! */
-/* Class này giữ nguyên để không ảnh hưởng đến index.html */
+/* Class này giữ nguyên để không ảnh hưởng đến home.html */
 .container {
     max-width: 1200px; 
     margin: 20px auto;
@@ -262,10 +262,10 @@ body {
 <body>
 
 	<header id="header">
-			<div class="logo"><a href="index.html"><img src="images/logo.png" alt="logo" /></a></div>
+			<div class="logo"><a href="home.html"><img src="images/logo.png" alt="logo" /></a></div>
 			<nav id="navigation" class="top_menu" >
 				<ul id="menu_navigation" class="menu" >
-					<li class=""><a href="index.html">Trang chủ</a></li>
+					<li class=""><a href="home.html">Trang chủ</a></li>
 						<li><a href="menu.html">Sách</a></li>
 						<li class="menu_has_children" ><a href="review-page.html">Bài viết</a>
 						<ul class="sub-menu">
@@ -279,6 +279,7 @@ body {
 						</ul>
 						</li>
 						<li ><a href="review.html">Thêm bài đánh giá</a></li>
+						<li><a href="login.html" class="nav-login" data-login-trigger>Đăng nhập</a></li>
 						<li><a href="contact.html">Liên hệ</a></li>
 				</ul>	
 			</nav>
@@ -344,5 +345,6 @@ body {
     </footer>
 		</div>
 	</div>
+    <script src="js/login-modal.js"></script>
 </body>
 </html>

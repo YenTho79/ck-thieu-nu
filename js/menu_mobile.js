@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('currentUserProfile');
             alert('Bạn đã đăng xuất thành công!');
             updateLoginStatus(); 
-            window.location.href = 'index.html'; 
+            window.location.href = 'home.html'; 
         });
     }
 
